@@ -11,5 +11,3 @@ class DisplayManager:
         print(f"{date} is a weekend date. There is no exchange data from weekends.")
     def displayErrorHoliday(self, date):
         print(f"{date} is a holiday date. There is no exchange data from holidays.")
-    def displayNoData(self):
-        print("No data!")

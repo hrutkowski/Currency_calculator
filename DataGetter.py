@@ -8,5 +8,3 @@ class DataGetter:
             data = response.json()
             rate = data["rates"][0]["mid"]
             return rate
-        else:
-            return "No info"

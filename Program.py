@@ -14,14 +14,11 @@ class Program:
         date = input("Date: ")
         if(dateChecker.checkWeekday(date)=="weekend"):
             displayManager.displayErrorWeekend(date)
-        if(dateChecker.checkWeekday(date)=="holiday"):
+        elif(dateChecker.checkWeekday(date)=="holiday"):
             displayManager.displayErrorHoliday(date)
         else:
             exchange = dataGetter.getExchangeRate(currency, date)
-            if(exchange == "No info"):
-                displayManager.displayNoData()
-            else:
-                displayManager.displayExchange(currency, date, exchange)
+            displayManager.displayExchange(currency, date, exchange)
 
 
 
