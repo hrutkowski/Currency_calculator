@@ -1,24 +1,27 @@
-from DataGetter import DataGetter
 from DisplayManager import DisplayManager
-from DateChecker import DateChecker
+from ConsoleExchangeTable import ConsoleExchangeTable
+from ConsoleSingleExchange import ConsoleSingleExchange
 
 class Program:
     def run(self):
-        dataGetter = DataGetter()
         displayManager = DisplayManager()
-        dateChecker = DateChecker()
-        displayManager.displayMenu()
-        displayManager.displayAskCurrency()
-        currency = input("Currency: ")
-        displayManager.displayAskDate()
-        date = input("Date: ")
-        if(dateChecker.checkWeekday(date)=="weekend"):
-            displayManager.displayErrorWeekend(date)
-        elif(dateChecker.checkWeekday(date)=="holiday"):
-            displayManager.displayErrorHoliday(date)
-        else:
-            exchange = dataGetter.getExchangeRate(currency, date)
-            displayManager.displayExchange(currency, date, exchange)
+        end = False
+        while(not end):
+            displayManager.displayMenu()
+            option = input("Menu option number: ")
+            if (option == "0"):
+                end = True
+            elif (option == "1"):
+                consoleExchangeTable = ConsoleExchangeTable()
+                consoleExchangeTable.run(displayManager)
+            elif (option == "2"):
+                consoleSingleExchange = ConsoleSingleExchange()
+                consoleSingleExchange.run(displayManager)
+            else:
+                displayManager.displayOptionError()
+                end = True
+
+        
 
 
 
